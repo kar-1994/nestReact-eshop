@@ -1,9 +1,24 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { ActionCreator } from './redux/actionCreator';
 
-function Display() {
+function Display(props) {
+    const dipatch = useDispatch()
+    let onButtonClick = (data) => {
+        props.displayType({ type: data });
+        if (data === 'ANALOG') {
+            dipatch(ActionCreator.removeToken())
+        } else {
+            dipatch(ActionCreator.storeToken("qweded"))
+        }
+    }
     return (
         <div className='container-flex'>
-            <div className='row' style={{"backgroundColor": "#e7c2e3", padding: "23px" }}>
+
+            <button className='btn btn-primary' onClick={() => onButtonClick("ANALOG")} > ANALOG CLOCK</button>
+            <button className='btn btn-secondary' onClick={() => onButtonClick("Digital")}> Digital CLOCK</button>
+
+            <div className='row' style={{ "backgroundColor": "#e7c2e3", padding: "23px" }}>
                 <div className="card col-sm-6" >
                     <div className="card-body">
                         <h5 className="card-title">Lotus beauty&fashion</h5>

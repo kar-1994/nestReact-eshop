@@ -15,4 +15,8 @@ export class UserRepository {
     async findUserByUserName(uname: string): Promise<Auths> {
         return this.authRepo.findOneBy({ username: uname })
     }
+    async insertUserDetails(uname:string,email:string,password:string):Promise<Auths>{
+        return this.authRepo.save({username:uname,password:password,email:email})
+    }
+
 }

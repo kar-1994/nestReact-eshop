@@ -5,11 +5,13 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { configService } from './config/config.service';
 import { PassportModule } from '@nestjs/passport';
+import { RegisterModule } from './registrastion/register.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     PassportModule,
-    AuthModule],
+    AuthModule,
+    RegisterModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -17,6 +17,7 @@ export class AuthService {
 
         } else if (authDTO.password != user.password) {
             throw new Error("Invalid credential please try again.");
+            
 
         } else {
             const jwtBody = { username: user.username, sub: user.user_id }

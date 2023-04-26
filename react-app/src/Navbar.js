@@ -12,7 +12,7 @@ function Navbar() {
                             <a className="nav-link" href="/home">Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/service">Service</a>
+                            <a className="nav-link" href="/clock">Service</a>
                         </li>
                         
                         <li className="nav-item">

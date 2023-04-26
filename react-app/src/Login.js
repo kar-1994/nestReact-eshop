@@ -3,18 +3,21 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import "./login.css"
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { ActionCreator } from './redux/actionCreator';
 
 function Login() {
 
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
     const navigate = useNavigate();
-
+    const dispatch = useDispatch()
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post("http://localhost:3001/auth/login", { email, password })
             .then((res) => {
-                sessionStorage.setItem("access_token", res.data.access_token);
+                dispatch(ActionCreator.storeToken(res.data.access_token))
+                // sessionStorage.setItem("access_token", res.data.access_token);
                 //window.location.href="/home"
                 navigate('/home')
 
@@ -23,6 +26,9 @@ function Login() {
             })
 
     }
+    // const register=(e)=>{
+
+    // }
 
 
 
@@ -64,7 +70,7 @@ function Login() {
 
                                             <div className="d-flex align-items-center justify-content-center pb-4">
                                                 <p className="mb-0 me-2">Don't have an account?</p>
-                                                <button type="button" className="btn btn-outline-danger">Create new</button>
+                                                <button type="button" className="btn btn-outline-danger"><a href="registration">Register</a></button>
                                             </div>
 
                                         </form>

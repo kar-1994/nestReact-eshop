@@ -1,0 +1,5 @@
+export const Types={
+    STORE_TOKEN:"STORE_TOKEN",
+    REMOVE_TOKEN:"REMOVE_TOKEN",
+    ADD_USER_INFO:"ADD_USER_INFO"
+}
